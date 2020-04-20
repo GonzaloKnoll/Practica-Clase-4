@@ -34,5 +34,31 @@ namespace Logica
         {
             return listanumeros.FindAll(x => x % 2 == 0).Sum() * (listanumeros.First(x => x % 2 != 0) * 2 + listanumeros.FindAll(x => x % 2 != 0).Sum() * (-1));
         }
+
+        public static DateTime RetornarFecha (this string fecha)
+        {
+            DateTime fechaaretornar = new DateTime();
+            try
+            {
+                fechaaretornar = DateTime.Parse(fecha);
+            }
+            catch (Exception)
+            {
+                fechaaretornar = DateTime.MinValue;
+            }
+            return fechaaretornar;
+        }
+
+        public static string InvertirCadena (this string cadena)
+        {
+            return cadena.Reverse().ToString();
+        }
+
+        public static string ConcatenarArrayString (this string[] arraystring, char separador)
+        {
+            return string.Join(separador.ToString(), arraystring);
+        }
+
+
     }
 }
