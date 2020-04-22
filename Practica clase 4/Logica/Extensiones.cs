@@ -36,7 +36,7 @@ namespace Logica
             return listanumeros.FindAll(x => x % 2 == 0).Sum() * (listanumeros.First(x => x % 2 != 0) * 2 + listanumeros.FindAll(x => x % 2 != 0).Sum() * (-1));
         }
 
-        public static DateTime RetornarFecha (this string fecha)
+        public static DateTime RetornarFecha(this string fecha)
         {
             DateTime fechaaretornar = new DateTime();
             try
@@ -50,12 +50,12 @@ namespace Logica
             return fechaaretornar;
         }
 
-        public static string InvertirCadena (this string cadena)
+        public static string InvertirCadena(this string cadena)
         {
             return cadena.Reverse().ToString();
         }
 
-        public static string ConcatenarArrayString (this string[] arraystring, char separador)
+        public static string ConcatenarArrayString(this string[] arraystring, char separador)
         {
             return string.Join(separador.ToString(), arraystring);
         }
@@ -69,6 +69,9 @@ namespace Logica
         {
             String Formato;
             Formato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+
+            //return Regex.IsMatch(EmailAComprobar, Formato); //Con esto es suficiente
+
             if (Regex.IsMatch(EmailAComprobar, Formato))
             {
                 if (Regex.Replace(EmailAComprobar, Formato, String.Empty).Length == 0)
