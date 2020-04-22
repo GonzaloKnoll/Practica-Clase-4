@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Logica
 {
@@ -59,6 +60,30 @@ namespace Logica
             return string.Join(separador.ToString(), arraystring);
         }
 
+        public static int RestarNumeros(this int entero1, int entero2)
+        {
+            return entero1 - entero2;
+        }
 
+        public static bool ComprobarFormatoEmail(this string EmailAComprobar)
+        {
+            String Formato;
+            Formato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(EmailAComprobar, Formato))
+            {
+                if (Regex.Replace(EmailAComprobar, Formato, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
