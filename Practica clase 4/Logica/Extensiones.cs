@@ -11,8 +11,12 @@ namespace Logica
     {
         public static int RetornarCantidadPalabras(this string cadena)
         {
-            string[] arraypalabras = cadena.Split(' ');
-            return arraypalabras.Count();
+            if (cadena != null)
+            {
+                string[] arraypalabras = cadena.Split(' ');
+                return arraypalabras.Count();
+            }
+            return 0;
         }
 
         public static int RetornarCantidadPalabras(this string cadena, char separador)
@@ -67,26 +71,8 @@ namespace Logica
 
         public static bool ComprobarFormatoEmail(this string EmailAComprobar)
         {
-            String Formato;
-            Formato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-
-            //return Regex.IsMatch(EmailAComprobar, Formato); //Con esto es suficiente
-
-            if (Regex.IsMatch(EmailAComprobar, Formato))
-            {
-                if (Regex.Replace(EmailAComprobar, Formato, String.Empty).Length == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
+            String Formato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            return Regex.IsMatch(EmailAComprobar, Formato);
         }
     }
 }

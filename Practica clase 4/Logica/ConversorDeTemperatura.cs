@@ -12,12 +12,12 @@ namespace Logica
 
         public static double ConvertirACelsius(double temperatura)
         {
-            return temperatura / 2.12; //podria usarse la propiedad privada para no repetir codigo
+            return temperatura / factorConversion; 
         }
 
         public static double ConvertirAFahrenheit(double temperatura)
         {
-            return temperatura * 2.12;
+            return temperatura * factorConversion;
         }
     }
 }
